@@ -1,16 +1,177 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diagnóstico de inscrições</title>
-    <link rel="stylesheet" href="./output.css" />
-    <script src="./script.js" defer></script>
-  </head>
-  <body>
-    <main>
-      <h1>Diagnóstico de inscrições</h1>
-      <p>Abra o DevTools e consulte o painel Console.</p>
-    </main>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HidroHub - Controle Diário de Hidratação</title>
+<link rel="stylesheet" href="./output.css">
+<script src="./script.js" defer></script>
+</head>
+<body class="bg-sky-50 leading-relaxed text-blue-950">
+
+<header class="bg-blue-900 text-white">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-4 md:flex-row">
+    <p class="text-2xl font-bold"><span aria-hidden="true">💧</span> HidroHub <span class="block text-sm font-normal text-blue-100">Pequenos hábitos, grandes resultados!</span></p>
+    <nav aria-label="Navegação principal">
+      <ul class="flex flex-wrap justify-center gap-2">
+        <li><a href="#inicio" class="rounded-full bg-blue-600 px-4 py-2 font-medium focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">Início</a></li>
+        <li><a href="#registros" class="rounded-full px-4 py-2 font-medium hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">Registros</a></li>
+        <li><a href="#resultados" class="rounded-full px-4 py-2 font-medium hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">Resultados</a></li>
+        <li><a href="#dicas" class="rounded-full px-4 py-2 font-medium hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">Dicas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="bg-sky-100">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h1 class="text-4xl font-extrabold text-blue-900 md:text-5xl">Controle Diário de Hidratação</h1>
+      <p class="mt-4 max-w-2xl text-lg">Registre o quanto você bebe durante o dia e descubra como está o seu consumo de água. Mais saúde, energia e bem-estar para o seu dia a dia!</p>
+      <p class="mt-2 max-w-2xl">O HidroHub é uma página educativa: ela soma seis registros de consumo, calcula a média por período e classifica o acompanhamento com base em uma meta fictícia.</p>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl space-y-8 px-4 py-8">
+
+    <section id="registros" class="rounded-xl border border-blue-200 bg-white p-5 shadow-md" aria-labelledby="titulo-registros">
+      <div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
+        <div>
+          <h2 id="titulo-registros" class="text-2xl font-bold text-blue-900"><span aria-hidden="true">🥛</span> Seus 6 registros do dia</h2>
+          <p class="mt-1 max-w-2xl text-blue-900">Informe quanto você bebeu em cada período, em mililitros (mL) ou copos. Cada copo equivale a 250 mL.</p>
+        </div>
+        <p class="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-blue-900"><span aria-hidden="true">🎯</span> Meta por registro: <span id="meta-registro">250 mL</span></p>
+      </div>
+
+      <div class="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">☀️</span> 1. Manhã</h3>
+          <p class="text-sm">06h - 09h</p>
+          <label for="consumo-1" class="sr-only">Quantidade bebida pela manhã</label>
+          <input id="consumo-1" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-1" class="sr-only">Unidade da manhã</label>
+          <select id="unidade-1" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">🌤️</span> 2. Meio da manhã</h3>
+          <p class="text-sm">09h - 12h</p>
+          <label for="consumo-2" class="sr-only">Quantidade bebida no meio da manhã</label>
+          <input id="consumo-2" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-2" class="sr-only">Unidade do meio da manhã</label>
+          <select id="unidade-2" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">🍽️</span> 3. Almoço</h3>
+          <p class="text-sm">12h - 15h</p>
+          <label for="consumo-3" class="sr-only">Quantidade bebida no almoço</label>
+          <input id="consumo-3" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-3" class="sr-only">Unidade do almoço</label>
+          <select id="unidade-3" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">🌞</span> 4. Tarde</h3>
+          <p class="text-sm">15h - 18h</p>
+          <label for="consumo-4" class="sr-only">Quantidade bebida à tarde</label>
+          <input id="consumo-4" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-4" class="sr-only">Unidade da tarde</label>
+          <select id="unidade-4" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">🌇</span> 5. Fim da tarde</h3>
+          <p class="text-sm">18h - 21h</p>
+          <label for="consumo-5" class="sr-only">Quantidade bebida no fim da tarde</label>
+          <input id="consumo-5" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-5" class="sr-only">Unidade do fim da tarde</label>
+          <select id="unidade-5" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+        <article class="rounded-lg border border-blue-200 p-3">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">🌙</span> 6. Noite</h3>
+          <p class="text-sm">21h - 00h</p>
+          <label for="consumo-6" class="sr-only">Quantidade bebida à noite</label>
+          <input id="consumo-6" type="number" min="0" class="mt-2 w-full rounded-md border border-blue-300 px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none">
+          <label for="unidade-6" class="sr-only">Unidade da noite</label>
+          <select id="unidade-6" class="mt-2 w-full rounded-md border border-blue-300 bg-white px-2 py-1 focus:ring-2 focus:ring-blue-700 focus:outline-none"><option value="mL">mL</option><option value="copos">copos</option></select>
+        </article>
+      </div>
+
+      <div class="mt-5 flex justify-end">
+        <button id="botao-calcular" type="button" class="rounded-full bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800 focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:outline-none"><span aria-hidden="true">🧮</span> Calcular resultados</button>
+      </div>
+    </section>
+
+    <section id="resultados" class="rounded-xl border border-blue-200 bg-white p-5 shadow-md" aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados" class="text-2xl font-bold text-blue-900"><span aria-hidden="true">📊</span> Resultados do seu dia</h2>
+
+      <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-lg bg-sky-100 p-4 text-center">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">💧</span> Consumo total</h3>
+          <p class="mt-2 text-4xl font-extrabold text-blue-900"><span id="resultado-total">0</span> mL</p>
+          <p>(<span id="resultado-litros">0</span> L)</p>
+        </article>
+        <article class="rounded-lg bg-purple-100 p-4 text-center">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">📈</span> Média por período</h3>
+          <p class="mt-2 text-4xl font-extrabold text-blue-900"><span id="resultado-media">0</span> mL</p>
+          <p>(por registro)</p>
+        </article>
+        <article class="rounded-lg bg-green-100 p-4 text-center">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">✅</span> Registros que atingiram a meta</h3>
+          <p class="mt-2 text-4xl font-extrabold text-blue-900"><span id="resultado-metas">0</span> de 6</p>
+          <p>(<span id="resultado-percentual">0</span>%)</p>
+        </article>
+        <article class="rounded-lg bg-amber-100 p-4 text-center">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">⭐</span> Classificação do acompanhamento</h3>
+          <p id="resultado-classificacao" class="mt-3 rounded-full bg-amber-400 px-4 py-2 text-2xl font-extrabold text-blue-950">-</p>
+        </article>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-5">
+        <article class="rounded-lg border border-blue-200 p-4 lg:col-span-3">
+          <h3 class="font-semibold text-blue-900">Seu consumo ao longo do dia (mL)</h3>
+          <ol class="mt-4 flex gap-2">
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-1" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-1" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Manhã</span></li>
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-2" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-2" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Meio da manhã</span></li>
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-3" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-3" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Almoço</span></li>
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-4" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-4" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Tarde</span></li>
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-5" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-5" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Fim da tarde</span></li>
+            <li class="flex flex-1 flex-col items-center gap-1"><span id="valor-barra-6" class="text-sm font-semibold"></span><div class="flex h-40 w-full items-end"><div id="barra-6" class="w-full rounded-t-md bg-blue-500"></div></div><span class="text-center text-xs">Noite</span></li>
+          </ol>
+        </article>
+        <aside class="rounded-lg bg-sky-100 p-4 lg:col-span-2">
+          <h3 class="font-semibold text-blue-900"><span aria-hidden="true">💡</span> O que esse resultado significa?</h3>
+          <p id="resultado-mensagem" class="mt-2"></p>
+          <ul class="mt-3 list-disc space-y-1 pl-5 text-sm">
+            <li>Mantenha o hábito nos períodos em que já atingiu a meta.</li>
+            <li>Tente aumentar o consumo nos períodos com menor ingestão.</li>
+            <li>Distribua a água ao longo do dia, sem exagerar de uma só vez.</li>
+          </ul>
+          <p class="mt-3 text-sm">Classificação: <strong>Meta atingida</strong> (média igual ou acima da meta), <strong>Quase lá</strong> (a partir de 60% da meta) ou <strong>Atenção à hidratação</strong> (abaixo de 60%).</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="dicas" class="rounded-xl border border-blue-200 bg-white p-5 shadow-md" aria-labelledby="titulo-dicas">
+      <h2 id="titulo-dicas" class="text-2xl font-bold text-blue-900"><span aria-hidden="true">💧</span> Por que se manter hidratado?</h2>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article><h3 class="font-semibold text-blue-900"><span aria-hidden="true">❤️</span> Melhora a saúde</h3><p class="text-sm">Ajuda no funcionamento do organismo e na regulação da temperatura corporal.</p></article>
+        <article><h3 class="font-semibold text-blue-900"><span aria-hidden="true">⚡</span> Mais energia</h3><p class="text-sm">Contribui para o foco, a concentração e o desempenho físico e mental.</p></article>
+        <article><h3 class="font-semibold text-blue-900"><span aria-hidden="true">🍽️</span> Auxilia na digestão</h3><p class="text-sm">Facilita o processamento dos alimentos e o bom funcionamento intestinal.</p></article>
+        <article><h3 class="font-semibold text-blue-900"><span aria-hidden="true">🙂</span> Cuida da pele</h3><p class="text-sm">Ajuda a manter a pele hidratada e saudável.</p></article>
+      </div>
+    </section>
+
+    <aside class="rounded-xl bg-sky-100 p-4 text-sm">
+      <p><strong>Este é um projeto exclusivamente didático.</strong> Os dados são fictícios e o conteúdo não oferece orientação médica, nem substitui a avaliação de um profissional de saúde.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="bg-blue-900 text-blue-100">
+  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-sm md:flex-row md:items-center md:justify-between">
+    <p class="text-lg font-bold text-white"><span aria-hidden="true">💧</span> HidroHub</p>
+    <p><strong>Integrantes:</strong> Afrânio Ítalo Araújo Silvério e João Roberto Santos de Araújo</p>
+    <p><strong>Turma:</strong> [informar turma]</p>
+  </div>
+</footer>
+
+</body>
 </html>
